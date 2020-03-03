@@ -23,7 +23,7 @@ export default class EditExercise extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:6000/exercises/'+ this.props.match.params.id)
+        axios.get('http://165.227.104.29:6656/exercises/'+ this.props.match.params.id)
             .then(response => {
                 this.setState({
                     username: response.data.username,
@@ -58,7 +58,7 @@ export default class EditExercise extends Component{
         });
     }
  
-    onSubmit(e){
+    async onSubmit(e){
         e.preventDefault();
  
         const exercise = {
@@ -68,7 +68,7 @@ export default class EditExercise extends Component{
             date : this.state.date
         }
         console.log(exercise);
-        axios.post('http://localhost:6000/exercises/update/'+this.props.match.params.id, exercise)
+        await axios.post('http://165.227.104.29:6656/exercises/update/'+this.props.match.params.id, exercise)
             .then(res => console.log(res.data))
         window.location = '/';
     }

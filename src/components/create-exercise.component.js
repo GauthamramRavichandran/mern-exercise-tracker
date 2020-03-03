@@ -23,7 +23,7 @@ export default class CreateExercise extends Component{
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:6000/users')
+        axios.get('http://165.227.104.29:6656/users')
             .then(response => {
                 if (response.data.length > 0){
                     this.setState({
@@ -64,7 +64,7 @@ export default class CreateExercise extends Component{
             date : this.state.date
         }
         console.log(exercise);
-        axios.post('http://localhost:6000/exercises/add', exercise)
+        axios.post('http://165.227.104.29:6656/exercises/add', exercise)
             .then(res => console.log(res.data))
         window.location = '/';
     }
@@ -107,7 +107,7 @@ export default class CreateExercise extends Component{
                                  
                    </div>
                    <div className = "form-group">
-                       <label>Duration (in minutes):</label>
+                       <label>Date:</label>
                        <div>
                             <DatePicker
                                 selected = {this.state.date}

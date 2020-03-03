@@ -25,9 +25,11 @@ export default class CreateUser extends Component{
         }
         console.log(user);
          
-        axios.post('http://localhost:6000/users/add', user)
+        axios.post('http://165.227.104.29:6656/users/add', user)
             .then(res => console.log(res.data))
-            //.catch()
+            .catch(function(error) {
+                console.log(error);
+            })
         this.setState({
             username: ''
         })
